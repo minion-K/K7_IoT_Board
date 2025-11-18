@@ -1,10 +1,17 @@
 //! user.path.ts
 
-const USER_PREFIX = '/users';
+import { BASE } from "../common/base.path";
+
+const USER_PREFIX = `${BASE}/users`;
 
 export const USER_PATH = {
+  ROOT: USER_PREFIX,
+
   LIST: USER_PREFIX,
+  CREATE: USER_PREFIX,
   // 동적 변수값은 반드시 함수로 작성
-  DETAIL: (userId: number) => `${USER_PREFIX}/${userId}`,
-  CREATE: USER_PREFIX
+  BY_ID: (userId: number) => `${USER_PREFIX}/${userId}`,
+  
+  ME: `${USER_PREFIX}/me`,
+  
 }
