@@ -165,7 +165,8 @@ CREATE TABLE board_like (
     COMMENT = '게시글 좋아요 테이블';
 
 # === BOARD DRAFT (게시글 임시저장)=== #
-CREATE TABLE board_draft (
+
+CREATE TABLE board_drafts (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
     
     title VARCHAR(150) NULL COMMENT '임시제목',
