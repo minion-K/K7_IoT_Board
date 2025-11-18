@@ -1,6 +1,6 @@
 import axios, { type InternalAxiosRequestConfig } from "axios";
 
-const API_BASE = import.meta.env.VITE_BASE_API || 'http://localhost:8080/api/v1';
+const API_BASE = import.meta.env.VITE_BASE_API || 'http://localhost:8080';
 
 export const publicApi = axios.create({
   baseURL: API_BASE,
@@ -9,7 +9,7 @@ export const publicApi = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json"
   },
-  withCredentials = true;
+  withCredentials: true
 });
 
 export const privateApi = axios.create({})
