@@ -17,8 +17,8 @@ import java.util.Set;
 @Table(
         name = "boards",
         indexes = {
-                @Index(name = "idx_boards_created-at", columnList = "created_at"),
-                @Index(name = "idx_boards_updated-at", columnList = "updated_at"),
+                @Index(name = "idx_boards_created_at", columnList = "created_at"),
+                @Index(name = "idx_boards_updated_at", columnList = "updated_at"),
         }
 )
 @Getter
