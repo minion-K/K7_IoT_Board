@@ -11,7 +11,7 @@ import org.example.boardback.entity.user.User;
 
 @Entity
 @Table(
-        name = "board_drafts",
+        name = "board_likes",
         uniqueConstraints = @UniqueConstraint(name = "uk_board_like_user", columnNames = {
                 "board_id", "user_id"
         }),

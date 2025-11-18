@@ -8,12 +8,20 @@ USE `board_v1`;
 SET NAMES utf8mb4;				# 클라이언트와 MySQL 서버 간의 문자 인코딩 설정
 SET FOREIGN_KEY_CHECKS = 0;		# 외래 키 제약 조건 검사를 일시적으로 끄는 설정
 
-# === USERS (사용자) === #
+# === 기존 테이블 제거 === #
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS board_likes;
+DROP TABLE IF EXISTS board_drafts;
+DROP TABLE IF EXISTS board_categories;
+DROP TABLE IF EXISTS boards;
+
+
+DROP TABLE IF EXISTS refresh_tokens;
 DROP TABLE IF EXISTS user_roles;
 DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS refresh_tokens;
 DROP TABLE IF EXISTS users;
 
+# === USERS (사용자) === #
 CREATE TABLE users (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
     
@@ -144,7 +152,7 @@ CREATE TABLE comments (
     COMMENT = '게시글 댓글 테이블';
 
 # === BOARDLIKE (게시글 좋아요) === #
-CREATE TABLE board_like (
+CREATE TABLE board_likes (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
     
     board_id BIGINT NOT NULL COMMENT '게시글 ID',
