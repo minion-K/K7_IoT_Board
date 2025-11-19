@@ -160,7 +160,7 @@ CREATE TABLE board_files (
     diplay_order INT DEFAULT 0,
     
     CONSTRAINT `fk_board_files_board` FOREIGN KEY (board_id) REFERENCES boards(id) ON DELETE CASCADE,
-    CONSTRAINT `fk_board_files_file` FOREIGN KEY (file_id) REFERENCES file_infos(id) ON DELETE CASCADE
+    CONSTRAINT `fk_board_files_file_info` FOREIGN KEY (file_id) REFERENCES file_infos(id) ON DELETE CASCADE
 )	ENGINE InnoDB
 	DEFAULT CHARSET = utf8mb4
     COLLATE = utf8mb4_unicode_ci
