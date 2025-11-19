@@ -58,7 +58,7 @@ CREATE TABLE users (
     CONSTRAINT `uk_users_username` UNIQUE(username),
     CONSTRAINT `uk_users_email` UNIQUE(email),
     CONSTRAINT `uk_users_nickname` UNIQUE(nickname),
-    CONSTRAINT `chk_users_gender` CHECK(gender IN('MAIL', 'FEMAIL', 'OTHER','NONE')),
+    CONSTRAINT `chk_users_gender` CHECK(gender IN('MAlE', 'FEMALE', 'OTHER','NONE')),
     CONSTRAINT `fk_users_profile_file` FOREIGN KEY (profile_file_id) REFERENCES file_infos(id) ON DELETE SET NULL
 ) 	ENGINE InnoDB
 	DEFAULT CHARSET = utf8mb4
@@ -150,7 +150,6 @@ CREATE TABLE boards (
 	DEFAULT CHARSET = utf8mb4
     COLLATE = utf8mb4_unicode_ci
     COMMENT = '게시글 테이블';
-    
 # === BOARD_FILES (게시글 파일 매핑) === #
 CREATE TABLE board_files (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,

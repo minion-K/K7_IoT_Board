@@ -28,7 +28,7 @@ public class BoardFile {
     )
     private FileInfo fileInfo;
 
-    private Integer displayOrder = 0;
+    private Integer displayOrder;
 
     public void updateDisplayOrder(Integer newOrder) {
         this.displayOrder = newOrder;

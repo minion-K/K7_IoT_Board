@@ -19,5 +19,12 @@ package org.example.boardback.파일업로드시스템;
 
 */
 
+/*
+    추가 요구 기능
+    1) 게시글 파일 다운로드 API
+    2) 게시글 파일 삭제 API
+    3) 게시글 파일 전체 조회 DTO + 조회 API
+*/
+
 public class 개요 {
 }
