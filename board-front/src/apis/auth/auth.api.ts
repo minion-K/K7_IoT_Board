@@ -1,16 +1,21 @@
+// auth.api.ts
+
 import type { LoginRequest, LoginResponse } from "@/types/auth.type";
 import { publicApi } from "../common/axiosInstance";
-import type { ApiResponse } from "@/types/common/ApiResponse";
+import type { ResponseDto } from "@/types/common/ResponseDto";
 import { AUTH_PATH } from "./auth.path";
 
 export const authApi = {
-  // 로그인
   login: async (req: LoginRequest): Promise<LoginResponse> => {
-    // axios.method<return type>();
-    const res = await publicApi.post<ApiResponse<LoginResponse>>(
+    // axios.메서드<메서드반환타입>();
+    const res = await publicApi.post<ResponseDto<LoginResponse>>(
       AUTH_PATH.LOGIN,
       req
     );
+
+    if (!res.data.data) {
+      throw new Error("로그인 실패");
+    }
 
     return res.data.data;
   },

@@ -1,6 +1,7 @@
 package org.example.boardback.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.boardback.common.enums.ErrorCode;
 import org.example.boardback.entity.file.FileInfo;
 import org.example.boardback.exception.FileStorageException;
 import org.example.boardback.repository.file.FileInfoRepository;
@@ -86,7 +87,7 @@ public class FileServiceImpl {
 
             return fileInfoRepository.save(info);
         } catch (Exception e) {
-            throw new FileStorageException("프로필 업로드 실패");
+            throw new FileStorageException(ErrorCode.INTERNAL_ERROR, "", e);
         }
     }
 
@@ -118,7 +119,7 @@ public class FileServiceImpl {
 
             return fileInfoRepository.save(info);
         } catch (Exception e) {
-            throw new FileStorageException("게시글 파일 업로드 실패");
+            throw new FileStorageException(ErrorCode.INTERNAL_ERROR, "", e);
         }
     }
 
@@ -129,7 +130,7 @@ public class FileServiceImpl {
             Path path = Paths.get(info.getFilePath());
             Files.deleteIfExists(path);
         } catch (Exception e) {
-            throw new FileStorageException("파일 삭제 실패", e);
+            throw new FileStorageException(ErrorCode.INTERNAL_ERROR, "", e);
         }
         fileInfoRepository.delete(info);
     }

@@ -46,7 +46,7 @@ public class BoardFileController {
         return ResponseEntity.ok(files); // 200 OK
     }
 
-    @GetMapping("/file/download/{fileId}")
+    @GetMapping("/files/{fileId}/download")
     public ResponseEntity<Resource> download(
             @PathVariable Long fileId
     ) {
@@ -65,7 +65,7 @@ public class BoardFileController {
         return ResponseEntity.ok().headers(headers).body(resource);
     }
 
-    @DeleteMapping("/file/{fileId}")
+    @DeleteMapping("/files/{fileId}")
     public ResponseEntity<Void> deleteFile(
             @PathVariable Long fileId
     )  {
